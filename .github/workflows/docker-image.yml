@@ -5,6 +5,21 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Select the environment to deploy to'
+        required: true
+        default: 'staging'
+        type: choice
+        options:
+          - development
+          - staging
+          - production
+      version:
+        description: 'Specify the version to deploy'
+        required: false
+        type: string
 
 jobs:
 
